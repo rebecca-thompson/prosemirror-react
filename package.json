@@ -1,7 +1,7 @@
 {
   "name": "prosemirror-react",
   "version": "1.0.0",
-  "main": "index.tsx",
+  "main": "App.tsx",
   "license": "MIT",
   "scripts": {
     "start": "webpack serve --hot --mode development"
@@ -11,6 +11,11 @@
     "@types/react-dom": "^18.0.9",
     "@types/react-router-dom": "^5.3.3",
     "prop-types": "^15.8.1",
+    "prosemirror-model": "^1.18.3",
+    "prosemirror-schema-basic": "^1.2.0",
+    "prosemirror-state": "^1.4.2",
+    "prosemirror-transform": "^1.7.0",
+    "prosemirror-view": "^1.29.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
