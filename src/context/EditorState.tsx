@@ -1,7 +1,7 @@
 import React, {createContext, Dispatch, FunctionComponent, ReactNode, SetStateAction, useState} from "react";
 import { EditorState } from "prosemirror-state";
 import { schema } from "prosemirror-schema-basic";
-import { plugins } from "../lib/prosemirror/plugins";
+import { plugins } from "../lib/plugins";
 
 export const EditorStateContext = createContext<{
     state: EditorState | undefined,
