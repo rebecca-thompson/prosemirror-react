@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useContext} from "react";
+import React, { FunctionComponent, useContext } from "react";
 import { EditorStateContext } from "../context/EditorState";
 import { css } from "@emotion/react";
 
@@ -22,7 +22,7 @@ export const DebugPanel: FunctionComponent = () => {
     return (
         <div css={debugPanelStyle}>
             <h2>Debug panel</h2>
-            <p>Current editor state: {JSON.stringify(state)}</p>
+            <p>Current state: {JSON.stringify(state)}</p>
         </div>
     );
 }
