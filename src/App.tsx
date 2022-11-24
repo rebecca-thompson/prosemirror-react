@@ -4,6 +4,8 @@ import { EditorStateContextProvider } from "./context/EditorState";
 import { Editor } from "./component/Editor";
 import { DebugPanel } from "./component/DebugPanel";
 import { css } from "@emotion/react";
+import { EditorViewContextProvider } from "./context/EditorView";
+import { Toolbar } from "./component/Toolbar";
 
 const appStyle = css`
     display: grid;
@@ -14,8 +16,11 @@ const App = () => {
     return (
         <div css={appStyle}>
             <EditorStateContextProvider>
-                <Editor />
-                <DebugPanel />
+                <EditorViewContextProvider>
+                    <Editor />
+                    <Toolbar />
+                    <DebugPanel />
+                </EditorViewContextProvider>
             </EditorStateContextProvider>
         </div>
     );

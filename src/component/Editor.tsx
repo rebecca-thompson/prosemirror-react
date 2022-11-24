@@ -1,12 +1,9 @@
-import React, {FunctionComponent, useContext, useEffect, useRef} from "react";
-import { EditorView } from "prosemirror-view";
-import { EditorStateContext } from "../context/EditorState";
-import { Transaction } from "prosemirror-state";
+import React, { FunctionComponent, useCallback, useContext } from "react";
 import { css } from "@emotion/react";
+import { EditorViewContext } from "../context/EditorView";
 
 const editorStyle = css`
     grid-column: 2 / span 1;
-    margin-bottom: 15px;
     h2 {
         margin-bottom: 10px;
     }
@@ -20,20 +17,16 @@ const editorStyle = css`
 `;
 
 export const Editor: FunctionComponent = () => {
-    const { state, setState } = useContext(EditorStateContext);
-    const editorRef = useRef();
+    const view = useContext(EditorViewContext);
 
-    useEffect(() => {
-        const view = new EditorView(editorRef.current, {
-            state,
-            dispatchTransaction(tr: Transaction) {
-                const newState = view.state.apply(tr);
-                setState(newState);
-                view.updateState(newState);
+    const editorRef = useCallback(
+        (element: HTMLDivElement | null) => {
+            if (element) {
+                element.appendChild(view.dom);
             }
-        });
-        return () => view.destroy();
-    }, [])
+        },
+        [view]
+    )
 
     return (
         <div css={editorStyle}>
